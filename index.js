@@ -27,10 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *    Counter1 has an additional function. They both get you the same answers but perform completely differently. If I want to console.log counter1 I need to call it as a function but if I console.log counter2 I just console.og the variable itself.
  * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *  Counter1 because it is function being returned within another function.
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ *    In Counter1 the variable count was only accessable in that function. In counter2 the variable count ha global scope.
  *
 */
 
@@ -56,10 +57,9 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning() {
+  let inningPoints = Math.floor(Math.random() * 3);
+  return inningPoints;
 }
 
 /* Task 3: finalScore()
@@ -76,11 +76,21 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+finalScoreObject = {
+    "Home": 0,
+    "Away": 0
+};
 
-  /*Code Here*/
-
+function finalScore(inningToFigure, numberOfInnings) {
+  for(let i = 0; i < numberOfInnings; i++) {
+    finalScoreObject.Home += inning();
+    finalScoreObject.Away += inning();
+  }
+  
+  return finalScoreObject;
 }
+
+console.log(finalScore(inning(), 9));
 
 /* Task 4: 
 
