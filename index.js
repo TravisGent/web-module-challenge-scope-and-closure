@@ -113,8 +113,16 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+finalScoreObject = {
+  "Home": 0,
+  "Away": 0
+};
+
+function scoreboard(inningToFigure, numberOfInnings){
+  for(let i = 0; i < numberOfInnings; i++) {
+    finalScoreObject.Home += inning();
+    finalScoreObject.Away += inning();
+
+    console.log(`Inning ${i + 1}: ${finalScoreObject.Home} - ${finalScoreObject.Away}`);
+  }
 }
-
-
